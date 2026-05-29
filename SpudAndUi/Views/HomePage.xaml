@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:SpudAndUi.Components"
+             x:Class="SpudAndUi.Views.HomePage"
+             BackgroundColor="{StaticResource Cream}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Spud &amp; Ui"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource Charcoal}"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,0" />
+
+            <Label Text="Your micro-pantry tracker"
+                   FontSize="14"
+                   TextColor="{StaticResource Muted}"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10" />
+
+            <components:PantryCard VegetableName="Potato"
+                                   Emoji="&#x1F954;"
+                                   Count="{Binding Potato.Count}" />
+
+            <components:PantryCard VegetableName="Onion"
+                                   Emoji="&#x1F9C5;"
+                                   Count="{Binding Onion.Count}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

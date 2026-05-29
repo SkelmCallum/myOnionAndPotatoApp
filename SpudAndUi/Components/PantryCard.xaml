@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SpudAndUi.Components.PantryCard"
+             x:Name="this">
+
+    <Frame BackgroundColor="{StaticResource Cream}"
+           CornerRadius="20"
+           Padding="20"
+           HasShadow="False"
+           BorderColor="{StaticResource SoftBrown}">
+
+        <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+
+            <Label Text="{Binding Emoji, Source={x:Reference this}}"
+                   FontSize="48"
+                   HorizontalOptions="Center" />
+
+            <Label Text="{Binding VegetableName, Source={x:Reference this}}"
+                   FontSize="18"
+                   TextColor="{StaticResource Charcoal}"
+                   HorizontalOptions="Center" />
+
+            <Label Text="{Binding Count, Source={x:Reference this}}"
+                   FontSize="36"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource Charcoal}"
+                   HorizontalOptions="Center" />
+
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                <Button Text="-"
+                        WidthRequest="50"
+                        HeightRequest="50"
+                        CornerRadius="25"
+                        BackgroundColor="{StaticResource Terracotta}"
+                        TextColor="White" />
+                <Button Text="+"
+                        WidthRequest="50"
+                        HeightRequest="50"
+                        CornerRadius="25"
+                        BackgroundColor="{StaticResource EarthGreen}"
+                        TextColor="White" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </Frame>
+
+</ContentView>

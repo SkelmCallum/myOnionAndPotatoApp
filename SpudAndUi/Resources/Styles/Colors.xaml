@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- South African Palette (Spud & Ui theme) -->
+    <Color x:Key="Cream">#FFF8F0</Color>
+    <Color x:Key="Terracotta">#C75B39</Color>
+    <Color x:Key="SoftBrown">#A67C5B</Color>
+    <Color x:Key="EarthGreen">#5B7A5E</Color>
+    <Color x:Key="WarmGold">#D4A24E</Color>
+    <Color x:Key="Charcoal">#2C2C2C</Color>
+    <Color x:Key="Muted">#9E9E9E</Color>
+
+    <!-- Default MAUI colors required by Styles.xaml -->
+    <Color x:Key="Primary">#C75B39</Color>
+    <Color x:Key="PrimaryDark">#A14A2E</Color>
+    <Color x:Key="PrimaryDarkText">#FFF8F0</Color>
+    <Color x:Key="Secondary">#D4A24E</Color>
+    <Color x:Key="SecondaryDarkText">#FFF8F0</Color>
+    <Color x:Key="Tertiary">#5B7A5E</Color>
+    <Color x:Key="White">White</Color>
+    <Color x:Key="Black">Black</Color>
+    <Color x:Key="Magenta">#C75B39</Color>
+    <Color x:Key="MidnightBlue">#2C2C2C</Color>
+    <Color x:Key="OffBlack">#1f1f1f</Color>
+    <Color x:Key="Gray100">#E1DFDD</Color>
+    <Color x:Key="Gray200">#C8C6C4</Color>
+    <Color x:Key="Gray300">#ABABAB</Color>
+    <Color x:Key="Gray400">#919191</Color>
+    <Color x:Key="Gray500">#6E6E6E</Color>
+    <Color x:Key="Gray600">#404040</Color>
+    <Color x:Key="Gray900">#212121</Color>
+    <Color x:Key="Gray950">#141414</Color>
+
+</ResourceDictionary>
