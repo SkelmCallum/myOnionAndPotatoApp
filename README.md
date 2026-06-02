@@ -1,10 +1,10 @@
-# Spud & Ui
+# Onion and Potato App
 
 A minimalist **South African micro-pantry tracker** for potatoes and onions — built as a portfolio learning project with **.NET MAUI** and **C#**.
 
 ## About
 
-Spud & Ui strips kitchen inventory down to two essentials: **potatoes** and **onions**. Tap-to-update counts, a gentle daily check-in ritual, and playful low-stock nudges — all wrapped in warm, earthy SA-inspired tones.
+myOnionAndPotatoApp strips kitchen inventory down to two essentials: **potatoes** and **onions**, Tap-to-update counts, a gentle daily check-in ritual, and playful low-stock nudges — all wrapped in warm, earthy SA-inspired tones.
 
 ## Tech stack
 
@@ -17,7 +17,7 @@ Spud & Ui strips kitchen inventory down to two essentials: **potatoes** and **on
 ```
 myOnionAndPotatoApp/
   ROADMAP.md       ← Phase-by-phase development plan
-  SpudAndUi/       ← MAUI application
+  MyOnionAndPotatoApp/       ← MAUI application
     Models/
     ViewModels/
     Views/
