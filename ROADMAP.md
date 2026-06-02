@@ -1,4 +1,4 @@
-# Spud & Ui — Development Roadmap
+# myOnionAndPotatoApp — Development Roadmap
 
 **The South African Micro-Pantry Tracker**
 
