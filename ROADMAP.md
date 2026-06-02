@@ -59,8 +59,8 @@ A minimalist app to track potatoes and onions — built with **.NET MAUI** and *
 
 ### Tasks
 
-- [ ] Wire +/- buttons on `PantryCard` to `HomeViewModel` commands
-- [ ] Prevent negative counts (minimum 0)
+- [x] Wire +/- buttons on `PantryCard` to `HomeViewModel` commands
+- [x] Prevent negative counts (minimum 0)
 - [ ] Persist pantry state locally (SQLite or Preferences for MVP)
 - [ ] Load saved counts on app start
 - [ ] Log entries when items are added or used (timestamp + vegetable + delta)
@@ -72,6 +72,7 @@ A minimalist app to track potatoes and onions — built with **.NET MAUI** and *
 - `ICommand` / `[RelayCommand]` from CommunityToolkit.Mvvm
 - Async save/load patterns
 - Single source of truth for pantry state
+- Debugging Appshell issues 
 
 ---
 
