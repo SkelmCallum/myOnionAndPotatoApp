@@ -4,6 +4,7 @@ using SpudAndUi.Views;
 
 namespace SpudAndUi;
 
+
 public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
@@ -20,6 +21,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<HomeViewModel>();
         builder.Services.AddTransient<HomePage>();
         builder.Services.AddTransient<LogPage>();
+        
 
 #if DEBUG
         builder.Logging.AddDebug();

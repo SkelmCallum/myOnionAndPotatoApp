@@ -4,9 +4,18 @@ namespace SpudAndUi.Views;
 
 public partial class HomePage : ContentPage
 {
-    public HomePage(HomeViewModel viewModel)
+    public HomePage()
     {
         InitializeComponent();
-        BindingContext = viewModel;
+    }
+
+    protected override void OnHandlerChanged()
+    {
+        base.OnHandlerChanged();
+
+        if (BindingContext != null || Handler?.MauiContext?.Services == null)
+            return;
+
+        BindingContext = Handler.MauiContext.Services.GetRequiredService<HomeViewModel>();
     }
 }

@@ -8,26 +8,31 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
-            <Label Text="Spud &amp; Ui"
+            <Label Text="My Pantry"
                    FontSize="32"
                    FontAttributes="Bold"
                    TextColor="{StaticResource Charcoal}"
                    HorizontalOptions="Center"
                    Margin="0,20,0,0" />
 
-            <Label Text="Your micro-pantry tracker"
+            <Label Text="Your Onion And Potato Tracker"
                    FontSize="14"
                    TextColor="{StaticResource Muted}"
                    HorizontalOptions="Center"
                    Margin="0,0,0,10" />
 
+            
             <components:PantryCard VegetableName="Potato"
-                                   Emoji="&#x1F954;"
-                                   Count="{Binding Potato.Count}" />
+                                Emoji="&#x1F954;"
+                                Count="{Binding Potato.Count}"
+                                IncreaseCommand="{Binding IncreasePotatoCommand}"
+                                DecreaseCommand="{Binding DecreasePotatoCommand}" />
 
             <components:PantryCard VegetableName="Onion"
-                                   Emoji="&#x1F9C5;"
-                                   Count="{Binding Onion.Count}" />
+                                Emoji="&#x1F9C5;"
+                                Count="{Binding Onion.Count}"
+                                IncreaseCommand="{Binding IncreaseOnionCommand}"
+                                DecreaseCommand="{Binding DecreaseOnionCommand}" />
 
         </VerticalStackLayout>
     </ScrollView>

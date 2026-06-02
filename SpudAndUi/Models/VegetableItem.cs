@@ -1,3 +1,5 @@
+using CommunityToolkit.Mvvm.ComponentModel;
+
 namespace SpudAndUi.Models;
 
 public enum VegetableType
@@ -6,9 +8,13 @@ public enum VegetableType
     Onion
 }
 
-public class VegetableItem
+public partial class VegetableItem : ObservableObject
 {
     public VegetableType Type { get; set; }
-    public int Count { get; set; }
-    public DateTime LastUpdated { get; set; }
+
+    [ObservableProperty]
+    private int count;
+
+    [ObservableProperty]
+    private DateTime lastUpdated;
 }

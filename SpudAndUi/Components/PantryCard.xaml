@@ -33,13 +33,15 @@
                         HeightRequest="50"
                         CornerRadius="25"
                         BackgroundColor="{StaticResource Terracotta}"
-                        TextColor="White" />
+                        TextColor="White"
+                        Command="{Binding DecreaseCommand, Source={x:Reference this}}" />
                 <Button Text="+"
                         WidthRequest="50"
                         HeightRequest="50"
                         CornerRadius="25"
                         BackgroundColor="{StaticResource EarthGreen}"
-                        TextColor="White" />
+                        TextColor="White"
+                        Command="{Binding IncreaseCommand, Source={x:Reference this}}" />
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

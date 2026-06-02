@@ -31,7 +31,10 @@
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 
-		
+		<!-- Android Studio JBR (Windows). Override: dotnet build -p:JavaSdkDirectory="your\path\jbr" -->
+		<JavaSdkDirectory Condition="'$(JavaSdkDirectory)' == '' and Exists('C:\Program Files\Android\Android Studio\jbr')">C:\Program Files\Android\Android Studio\jbr</JavaSdkDirectory>
+		<AndroidSdkDirectory Condition="'$(AndroidSdkDirectory)' == '' and Exists('$(LOCALAPPDATA)\Android\Sdk')">$(LOCALAPPDATA)\Android\Sdk</AndroidSdkDirectory>
+
 	</PropertyGroup>
 
 	<ItemGroup>

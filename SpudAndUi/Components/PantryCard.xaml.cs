@@ -1,3 +1,4 @@
+using System.Windows.Input;
 namespace SpudAndUi.Components;
 
 public partial class PantryCard : ContentView
@@ -30,6 +31,24 @@ public partial class PantryCard : ContentView
     {
         get => (int)GetValue(CountProperty);
         set => SetValue(CountProperty, value);
+    }
+
+    public static readonly BindableProperty IncreaseCommandProperty =
+        BindableProperty.Create(nameof(IncreaseCommand), typeof(ICommand), typeof(PantryCard));
+
+    public ICommand? IncreaseCommand
+    {
+        get => (ICommand?)GetValue(IncreaseCommandProperty);
+        set => SetValue(IncreaseCommandProperty, value);
+    }
+
+    public static readonly BindableProperty DecreaseCommandProperty =
+        BindableProperty.Create(nameof(DecreaseCommand), typeof(ICommand), typeof(PantryCard));
+
+    public ICommand? DecreaseCommand
+    {
+        get => (ICommand?)GetValue(DecreaseCommandProperty);
+        set => SetValue(DecreaseCommandProperty, value);
     }
 
     public PantryCard()

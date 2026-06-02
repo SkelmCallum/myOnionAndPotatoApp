@@ -6,9 +6,9 @@
     xmlns:views="clr-namespace:SpudAndUi.Views"
     Title="SpudAndUi">
 
-    <TabBar>
+     <TabBar>
         <ShellContent Title="Pantry" ContentTemplate="{DataTemplate views:HomePage}" Route="HomePage" />
         <ShellContent Title="Log" ContentTemplate="{DataTemplate views:LogPage}" Route="LogPage" />
-    </TabBar>
+    </TabBar> 
 
 </Shell>
