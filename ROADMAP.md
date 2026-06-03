@@ -20,10 +20,18 @@ A minimalist app to track potatoes and onions — built with **.NET MAUI** and *
 ## Learning objectives
 
 - **State management** — increment/decrement counts across screens in real time
-- **Data persistence** — save counts locally (SQLite)
+- **Data persistence** — save counts locally (Preferences for MVP, SQLite later)
 - **UI & micro-interactions** — layouts, animations, optional sound
 - **Notifications** — daily check-ins and low-stock alerts
 - **Professional workflow** — clean structure, testing, documentation
+
+---
+
+## Current status (June 2026)
+
+- **Phase 1:** Complete  
+- **Phase 2:** In progress — +/- commands and non-negative counts working on Android device  
+- **Next:** Preferences persistence, then activity log + LogViewModel  
 
 ---
 
@@ -39,7 +47,7 @@ A minimalist app to track potatoes and onions — built with **.NET MAUI** and *
 - [x] South African color palette (`Resources/Styles/Colors.xaml`)
 - [x] `HomeViewModel` with `[ObservableProperty]`
 - [x] Tab navigation (`AppShell` — Pantry + Log)
-- [x] UI shell: `HomePage`, `LogPage`, `PantryCard` (placeholder +/- buttons)
+- [x] UI shell: HomePage, LogPage, PantryCard (count display; +/- wired in Phase 2)
 - [x] Dependency injection in `MauiProgram.cs`
 - [x] Deploy to Android device
 
@@ -50,6 +58,8 @@ A minimalist app to track potatoes and onions — built with **.NET MAUI** and *
 - `SpudAndUi/Views/HomePage.xaml`, `SpudAndUi/Views/LogPage.xaml`
 - `SpudAndUi/Components/PantryCard.xaml`
 - `SpudAndUi/AppShell.xaml`, `SpudAndUi/MauiProgram.cs`
+- `SpudAndUi/Components/PantryCard.xaml.cs` (command bindable properties)
+- `SpudAndUi/MyOnionAndPotatoApp.csproj` (app project; `JavaSdkDirectory` set for Windows builds)
 
 ---
 
@@ -70,7 +80,10 @@ A minimalist app to track potatoes and onions — built with **.NET MAUI** and *
 ### Learning focus
 
 - `ICommand` / `[RelayCommand]` from CommunityToolkit.Mvvm
-- Async save/load patterns
+- Passing commands into `PantryCard` via bindable properties
+- `HomePage` gets `HomeViewModel` in `OnHandlerChanged` (Shell + `DataTemplate` + DI)
+- `VegetableItem` as `ObservableObject` for live count updates
+- Async save/load patterns (next: Preferences persistence)
 - Single source of truth for pantry state
 - Debugging Appshell issues 
 
@@ -144,10 +157,12 @@ A minimalist app to track potatoes and onions — built with **.NET MAUI** and *
 
 - .NET 10 SDK + MAUI Android workload
 - Android SDK (via Android Studio)
-- `JAVA_HOME` → Android Studio `jbr`
+- `JAVA_HOME` → `C:\Program Files\Android\Android Studio\jbr` (if not set in `.csproj`)
 - `ANDROID_HOME` → `%LOCALAPPDATA%\Android\Sdk`
 
-### Deploy to phone (wireless or USB)
+> **Note:** `MyOnionAndPotatoApp.csproj` sets `JavaSdkDirectory` when Android Studio’s JBR exists on `C:`, so you may not need manual `JAVA_HOME` in every terminal.
+
+### Deploy to phone (USB or wireless)
 
 ```powershell
 $env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
@@ -168,32 +183,49 @@ After a successful build, the signed APK is at:
 SpudAndUi/bin/Debug/net10.0-android/com.companyname.spudandui-Signed.apk
 ```
 
-Copy to your device and install manually if wireless deploy is unavailable.
+Copy to your device and install manually if deploy from the PC is unavailable.
+
+### Troubleshooting
+
+| Error | Likely fix |
+|-------|------------|
+| `XA5300` — Java SDK not found | Set `JAVA_HOME` or build with `-p:JavaSdkDirectory="C:\Program Files\Android\Android Studio\jbr"` |
+| `XA0010` — No available device | Connect phone via USB/wireless debugging; run `adb devices` |
+| Active Shell item not set | Ensure `AppShell.xaml` has tabs; `HomePage` loads `HomeViewModel` via `OnHandlerChanged` |
 
 ---
 
 ## Architecture (MVVM)
 
 ```
-SpudAndUi/
-  Models/          → VegetableItem, log entries (Phase 2)
-  ViewModels/      → HomeViewModel, LogViewModel
-  Views/           → HomePage, LogPage (XAML)
-  Components/      → PantryCard (reusable)
-  AppShell.xaml    → Tab navigation
-  MauiProgram.cs   → DI registration
+myOnionAndPotatoApp/
+  ROADMAP.md
+  SpudAndUi/                    ← MAUI app folder
+    MyOnionAndPotatoApp.csproj  ← build entry (namespace: SpudAndUi)
+    Models/          → VegetableItem (+ log entries in Phase 2)
+    ViewModels/      → HomeViewModel (+ LogViewModel in Phase 2)
+    Views/           → HomePage, LogPage (XAML)
+    Components/      → PantryCard (+/- command bindings)
+    AppShell.xaml    → Tab navigation (Pantry + Log)
+    MauiProgram.cs   → DI registration
 ```
 
 ---
 
-## Phase 1 comprehension checkpoint
+## Comprehension checkpoints
 
-Before starting Phase 2, you should be able to explain:
+### Phase 1
 
 1. What MVVM is and why Model, View, and ViewModel are separated
 2. What `[ObservableProperty]` does and why we use it
 3. What data binding is and how the View updates when the ViewModel changes
 
+### Phase 2 (after tasks 1–2)
+
+1. How `[RelayCommand]` exposes `IncreasePotatoCommand` to XAML
+2. Why `PantryCard` uses bindable properties for `IncreaseCommand` / `DecreaseCommand`
+3. Why changing `Potato.Count` requires `VegetableItem` to be observable
+
 ---
 
-*Last updated: May 2026*
+*Last updated: 3 June 2026*
