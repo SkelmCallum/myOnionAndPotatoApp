@@ -17,6 +17,7 @@ A minimalist app to track potatoes and onions — built with **.NET MAUI** and *
 
 ---
 
+
 ## Learning objectives
 
 - **State management** — increment/decrement counts across screens in real time
@@ -71,8 +72,8 @@ A minimalist app to track potatoes and onions — built with **.NET MAUI** and *
 
 - [x] Wire +/- buttons on `PantryCard` to `HomeViewModel` commands
 - [x] Prevent negative counts (minimum 0)
-- [ ] Persist pantry state locally (SQLite or Preferences for MVP)
-- [ ] Load saved counts on app start
+- [x] Persist pantry state locally (SQLite or Preferences for MVP)
+- [x] Load saved counts on app start
 - [ ] Log entries when items are added or used (timestamp + vegetable + delta)
 - [ ] Bind `LogPage` to a `LogViewModel` showing history (newest first)
 - [ ] Empty state when no log entries exist
